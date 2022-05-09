@@ -9,6 +9,12 @@ class ValueNotifierExample extends StatefulWidget {
 }
 
 class _ValueNotifierExampleState extends State<ValueNotifierExample> {
+  final centerTextStyle = const TextStyle(
+    fontSize: 64,
+    color: Colors.lightBlue,
+    fontWeight: FontWeight.bold,
+  );
+
   late ValueNotifier<double> valueNotifier;
 
   @override
@@ -41,13 +47,10 @@ class _ValueNotifierExampleState extends State<ValueNotifierExample> {
               progressStrokeWidth: 24,
               backStrokeWidth: 24,
               mergeMode: true,
-              onGetTextValue: (value) => '${value.toInt()}',
+              onGetText: (value) {
+                return Text('${value.toInt()}', style: centerTextStyle,);
+              },
               progressColors: const [Colors.cyan, Colors.purple],
-              textValueStyle: const TextStyle(
-                fontSize: 64,
-                color: Colors.lightBlue,
-                fontWeight: FontWeight.bold,
-              ),
               backColor: Colors.black.withOpacity(0.4),
             ),
             const SizedBox(height: 50,),

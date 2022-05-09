@@ -1,8 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-// TODO: Added callback for Text widget
-// TODO: Added passing the current gradient color to the text generation function
 // TODO: Rotate the first percent of progress
 
 /// Double pi.
@@ -19,7 +17,7 @@ double _degToRad(double degree) {
 }
 
 /// The callback type to get a new text value centered in the progress bar.
-typedef OnGetCenterText = String Function(double);
+typedef OnGetCenterText = Text Function(double);
 
 /// Simple circular progress bar.
 ///
@@ -62,11 +60,9 @@ class SimpleCircularProgressBar extends StatefulWidget {
   /// The object designed to update the value of the progress bar.
   final ValueNotifier<double>? valueNotifier;
 
-  /// Callback to get a new text value centered in the progress bar.
-  final OnGetCenterText? onGetTextValue;
-
-  /// The style of the text placed in the center of the progress bar.
-  final TextStyle textValueStyle;
+  /// Callback to generate a new Text widget located in the center of the
+  /// progress bar. The callback input is the current value of the bar progress.
+  final OnGetCenterText? onGetText;
 
   /// Create simple circular progress bar.
   ///
@@ -99,8 +95,8 @@ class SimpleCircularProgressBar extends StatefulWidget {
   /// color from [progressColors] is taken.
   ///
   /// Center text. If you want the text with its value to be displayed in the
-  /// center of the progress bar, define the [onGetTextValue] method. You can
-  /// also specify the style of this text with [textValueStyle].
+  /// center of the progress bar, define the [onGetText] method. In this method
+  /// you should return the Text widget for the current progress bar value.
   const SimpleCircularProgressBar({
     Key? key,
     this.size = 100,
@@ -114,8 +110,7 @@ class SimpleCircularProgressBar extends StatefulWidget {
     this.animationDuration = 6,
     this.mergeMode = false,
     this.valueNotifier,
-    this.onGetTextValue,
-    this.textValueStyle = const TextStyle(fontSize: 20),
+    this.onGetText,
   }) : super(key: key);
   
   @override
@@ -267,9 +262,8 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
             // Create center text widget.
             // If no callback is defined, create an empty widget.
             Widget centerTextWidget;
-            if (widget.onGetTextValue != null) {
-              final text = widget.onGetTextValue!(animationController.value);
-              centerTextWidget = Text(text, style: widget.textValueStyle);
+            if (widget.onGetText != null) {
+              centerTextWidget = widget.onGetText!(animationController.value);
             } else {
               centerTextWidget = const SizedBox.shrink();
             }

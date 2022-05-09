@@ -51,8 +51,8 @@ class _RowTextExampleState extends State<RowTextExample> {
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  onGetTextValue: (double value) {
-                    return '${value.toInt()}%';
+                  onGetText: (double value) {
+                    return Text('${value.toInt()}%');
                   },
                 ),
 
@@ -64,14 +64,38 @@ class _RowTextExampleState extends State<RowTextExample> {
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  onGetTextValue: (double value) {
-                    return '${value.toInt()}';
+                  onGetText: (double value) {
+                    return Text(
+                      '${value.toInt()}',
+                      style: const TextStyle(
+                        fontSize: 30,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    );
                   },
-                  textValueStyle: const TextStyle(
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+                ),
+
+                const SizedBox(width: 25,),
+
+                // ==============================================
+                // |           EXAMPLE CODE 18 (TEXT)           |
+                // ==============================================
+                SimpleCircularProgressBar(
+                  valueNotifier: valueNotifier,
+                  mergeMode: true,
+                  onGetText: (double value) {
+                    TextStyle centerTextStyle = TextStyle(
+                      fontSize: 30,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.greenAccent.withOpacity(value * 0.01),
+                    );
+
+                    return Text(
+                      '${value.toInt()}',
+                      style: centerTextStyle,
+                    );
+                  },
                 ),
               ],
             )
