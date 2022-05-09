@@ -12,20 +12,22 @@ class RowMergeModeExample extends StatefulWidget {
 class _RowMergeModeExampleState extends State<RowMergeModeExample> {
   late ValueNotifier<double> valueNotifier;
 
-  int count = 0;
+  int keyForRepaint = 0;
 
   @override
   void initState() {
     super.initState();
-    valueNotifier = ValueNotifier(100.0);
+    valueNotifier = ValueNotifier(0.0);
   }
 
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
+      key: ValueKey(keyForRepaint),
       child: GestureDetector(
         onTap: () {
-          count += 3;
+          valueNotifier.value = 100.0;
+          keyForRepaint++;
           setState(() {});
         },
         child: Column(
@@ -47,7 +49,6 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                 // |        EXAMPLE CODE 10 (MERGE MODE)        |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   progressColors: const [Colors.cyan],
                   mergeMode: true,
@@ -59,7 +60,6 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                 // |        EXAMPLE CODE 11 (MERGE MODE)        |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count + 1), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   progressColors: const [Colors.cyan],
                   fullProgressColor: Colors.deepOrangeAccent,
@@ -72,7 +72,6 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                 // |        EXAMPLE CODE 12 (MERGE MODE)        |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count + 2), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   progressColors: const [Colors.cyan, Colors.purpleAccent],
                   mergeMode: true,

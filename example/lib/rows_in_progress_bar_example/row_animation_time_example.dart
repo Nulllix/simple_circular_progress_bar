@@ -12,20 +12,22 @@ class RowAnimationTimeExample extends StatefulWidget {
 class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
   late ValueNotifier<double> valueNotifier;
 
-  int count = 0;
+  int keyForRepaint = 0;
 
   @override
   void initState() {
     super.initState();
-    valueNotifier = ValueNotifier(100.0);
+    valueNotifier = ValueNotifier(0.0);
   }
 
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
+      key: ValueKey(keyForRepaint),
       child: GestureDetector(
         onTap: () {
-          count += 3;
+          valueNotifier.value = 100.0;
+          keyForRepaint++;
           setState(() {});
         },
         child: Column(
@@ -47,7 +49,6 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                 // |      EXAMPLE CODE 13 (ANIMATION TIME)      |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   mergeMode: true,
                   animationDuration: 1,
@@ -59,7 +60,6 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                 // |      EXAMPLE CODE 14 (ANIMATION TIME)      |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count + 1), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   mergeMode: true,
                   animationDuration: 3,
@@ -71,7 +71,6 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                 // |      EXAMPLE CODE 15 (ANIMATION TIME)      |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count + 2), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   mergeMode: true,
                   animationDuration: 16,

@@ -12,20 +12,22 @@ class RowStartEngleExample extends StatefulWidget {
 class _RowStartEngleExampleState extends State<RowStartEngleExample> {
   late ValueNotifier<double> valueNotifier;
 
-  int count = 0;
+  int keyForRepaint = 0;
 
   @override
   void initState() {
     super.initState();
-    valueNotifier = ValueNotifier(100.0);
+    valueNotifier = ValueNotifier(0.0);
   }
 
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
       child: GestureDetector(
+        key: ValueKey(keyForRepaint),
         onTap: () {
-          count += 3;
+          valueNotifier.value = 100.0;
+          keyForRepaint++;
           setState(() {});
         },
         child: Column(
@@ -47,7 +49,6 @@ class _RowStartEngleExampleState extends State<RowStartEngleExample> {
                 // |        EXAMPLE CODE 4 (START ENGLE)        |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                 ),
 
@@ -57,7 +58,6 @@ class _RowStartEngleExampleState extends State<RowStartEngleExample> {
                 // |        EXAMPLE CODE 5 (START ENGLE)        |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count + 1), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   startAngle: 45,
                 ),
@@ -68,7 +68,6 @@ class _RowStartEngleExampleState extends State<RowStartEngleExample> {
                 // |        EXAMPLE CODE 6 (START ENGLE)        |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count + 2), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   startAngle: -270,
                 ),

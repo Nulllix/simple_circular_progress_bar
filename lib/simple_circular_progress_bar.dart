@@ -1,9 +1,9 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-// TODO: Added default value notifier
 // TODO: Added callback for Text widget
 // TODO: Added passing the current gradient color to the text generation function
+// TODO: Rotate the first percent of progress
 
 /// Double pi.
 const double _doublePi = 2 * pi;
@@ -60,7 +60,7 @@ class SimpleCircularProgressBar extends StatefulWidget {
   final bool mergeMode;
 
   /// The object designed to update the value of the progress bar.
-  final ValueNotifier<double> valueNotifier;
+  final ValueNotifier<double>? valueNotifier;
 
   /// Callback to get a new text value centered in the progress bar.
   final OnGetCenterText? onGetTextValue;
@@ -113,7 +113,7 @@ class SimpleCircularProgressBar extends StatefulWidget {
     this.backColor = const Color(0xFF16262D),
     this.animationDuration = 6,
     this.mergeMode = false,
-    required this.valueNotifier,
+    this.valueNotifier,
     this.onGetTextValue,
     this.textValueStyle = const TextStyle(fontSize: 20),
   }) : super(key: key);
@@ -140,6 +140,9 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
 
   late Color fullProgressColor;
 
+  late ValueNotifier<double> valueNotifier;
+  late ValueNotifier<double>? defaultValueNotifier;
+
   @override
   void initState() {
     super.initState();
@@ -147,6 +150,15 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
     // Check zero size.
     widgetSize = (widget.size <= 0) ? 100.0 : widget.size;
     maxValue = (widget.maxValue <= 0) ? 100.0 : widget.maxValue;
+
+    // Check value notifier
+    if (widget.valueNotifier != null) {
+      defaultValueNotifier = null;
+      valueNotifier = widget.valueNotifier!;
+    } else {
+      defaultValueNotifier = ValueNotifier(widget.maxValue);
+      valueNotifier = defaultValueNotifier!;
+    }
 
     // Calculate the real starting angle and correction angle.
     // Correction angle - the angle to which the main line should be
@@ -194,7 +206,7 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-      valueListenable: widget.valueNotifier,
+      valueListenable: valueNotifier,
       builder: (BuildContext context, double value, Widget? child) {
         // If the set value is greater than the maximum value, we must set the
         // maximum value. Otherwise the animation will loop.
@@ -292,6 +304,11 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
   @override
   void dispose() {
     animationController.dispose();
+
+    if (defaultValueNotifier != null) {
+      defaultValueNotifier!.dispose();
+    }
+
     super.dispose();
   }
 }
@@ -434,6 +451,6 @@ class _SimpleCircularProgressBarPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(_SimpleCircularProgressBarPainter oldDelegate) {
-    return oldDelegate.sweepAngle != sweepAngle;
+    return oldDelegate.currentLength != currentLength;
   }
 }

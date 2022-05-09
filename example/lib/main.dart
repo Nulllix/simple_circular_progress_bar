@@ -25,9 +25,9 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Plugin example app'),
+          title: const Text('Progress bar example app'),
         ),
-        body: const ProgressBarExample(),
+        body: const ExampleHome(),
       ),
     );
   }
@@ -47,7 +47,8 @@ class ExampleHome extends StatelessWidget {
         )
       ),
       minimumSize: MaterialStateProperty.all(const Size.fromHeight(60)),
-      backgroundColor: MaterialStateProperty.all(Colors.indigo),
+      backgroundColor: MaterialStateProperty.all(Colors.black.withOpacity(0.25)),
+      alignment: Alignment.center,
     );
 
     return Container(
@@ -67,27 +68,56 @@ class ExampleHome extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(height: 20,),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ValueNotifierExample()),
-                );
-              },
-              child: Text('Progress bar exapmle'.toUpperCase()),
-              style: buttonStyle,
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ProgressBarExample()),
+                  );
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('Progress bar exapmle'.toUpperCase()),
+                    const Text(
+                      'More than 18 examples of bar progress states',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ],
+                ),
+                style: buttonStyle,
+              ),
             ),
             const SizedBox(height: 20,),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const ValueNotifierExample()),
-                );
-              },
-              child: Text('Value notifier exapmle'.toUpperCase()),
-              style: buttonStyle,
+            Expanded(
+              child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const ValueNotifierExample()),
+                  );
+                },
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text('Value notifier exapmle'.toUpperCase()),
+                    const Text(
+                      'An example showing how to work with ValueNotifier',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                  ],
+                ),
+                style: buttonStyle,
+              ),
             ),
+            const SizedBox(height: 20,),
           ],
         ),
       ),

@@ -12,21 +12,23 @@ class RowLineThicknessExample extends StatefulWidget {
 class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
   late ValueNotifier<double> valueNotifier;
 
-  int count = 0;
+  int keyForRepaint = 0;
 
   @override
   void initState() {
     super.initState();
-    valueNotifier = ValueNotifier(100.0);
+    valueNotifier = ValueNotifier(0.0);
   }
 
   @override
   Widget build(BuildContext context) {
     return RepaintBoundary(
       child: GestureDetector(
+        key: ValueKey(keyForRepaint),
         onTap: () {
-          count += 3;
-          setState(() {});
+          valueNotifier.value = 100.0;
+          keyForRepaint++;
+          setState(() { });
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -47,7 +49,6 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                 // |       EXAMPLE CODE 7 (LINE THICKNESS)      |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   size: 80,
                   progressStrokeWidth: 25,
@@ -60,7 +61,6 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                 // |       EXAMPLE CODE 8 (LINE THICKNESS)      |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count + 1), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   size: 90,
                   progressStrokeWidth: 20,
@@ -73,7 +73,6 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                 // |       EXAMPLE CODE 9 (LINE THICKNESS)      |
                 // ==============================================
                 SimpleCircularProgressBar(
-                  key: ValueKey(count + 2), // Ignore. You won't need it.
                   valueNotifier: valueNotifier,
                   backStrokeWidth: 0,
                 ),

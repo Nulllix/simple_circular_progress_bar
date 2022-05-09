@@ -1,13 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
-class ValueNotifierExample extends StatelessWidget {
+class ValueNotifierExample extends StatefulWidget {
   const ValueNotifierExample({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
-    final ValueNotifier<double> valueNotifier = ValueNotifier(0.0);
+  State<ValueNotifierExample> createState() => _ValueNotifierExampleState();
+}
 
+class _ValueNotifierExampleState extends State<ValueNotifierExample> {
+  late ValueNotifier<double> valueNotifier;
+
+  @override
+  void initState() {
+    super.initState();
+    valueNotifier = ValueNotifier(0.0);
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -23,7 +34,7 @@ class ValueNotifierExample extends StatelessWidget {
         alignment: Alignment.center,
         child: Column (
           children: [
-            const SizedBox(height: 50,),
+            const SizedBox(height: 100,),
             SimpleCircularProgressBar(
               size: 200,
               valueNotifier: valueNotifier,
@@ -55,6 +66,10 @@ class ValueNotifierExample extends StatelessWidget {
                 style: const TextStyle(fontSize: 25, color: Colors.white),
                 onSubmitted: (inputText) {
                   final double newValue = double.parse(inputText);
+
+                  // As soon as we change the value of the valueNotifier
+                  // parameter, the function ValueListenableBuilder within
+                  // SimpleCircularProgressBar is called.
                   valueNotifier.value = newValue;
                 },
               ),
@@ -63,5 +78,11 @@ class ValueNotifierExample extends StatelessWidget {
         )
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    valueNotifier.dispose();
+    super.dispose();
   }
 }
