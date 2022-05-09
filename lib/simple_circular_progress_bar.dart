@@ -1,8 +1,6 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
 
-// TODO: Rotate the first percent of progress
-
 /// Double pi.
 const double _doublePi = 2 * pi;
 
@@ -162,8 +160,7 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
     final k = _doublePi / circleLength;
 
     correctAngle = widget.progressStrokeWidth * k;
-    final widgetStartAngleOffset = _degToRad(widget.startAngle - 90);
-    startAngle = (correctAngle / 2) + widgetStartAngleOffset;
+    startAngle = (correctAngle / 2);
 
     // Adjusting the colors.
     final List<Color> progressColors = [];
@@ -178,7 +175,6 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
     }
 
     sweepGradient = SweepGradient(
-      transform: GradientRotation(widgetStartAngleOffset),
       tileMode: TileMode.decal,
       colors: progressColors,
     );
@@ -273,18 +269,21 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
               alignment: Alignment.center,
               children: [
                 centerTextWidget,
-                CustomPaint(
-                  size: Size(widgetSize, widgetSize),
-                  painter: _SimpleCircularProgressBarPainter(
-                    progressStrokeWidth: widget.progressStrokeWidth,
-                    backStrokeWidth: widget.backStrokeWidth,
-                    startAngle: startAngle,
-                    sweepAngle: sweepAngle,
-                    currentLength: currentLength,
-                    frontGradient: sweepGradient,
-                    backColor: widget.backColor,
-                    fullProgressColor: fullProgressColor,
-                    isFullProgress: isFullProgress,
+                Transform.rotate(
+                  angle: _degToRad(widget.startAngle - 90),
+                  child: CustomPaint(
+                    size: Size(widgetSize, widgetSize),
+                    painter: _SimpleCircularProgressBarPainter(
+                      progressStrokeWidth: widget.progressStrokeWidth,
+                      backStrokeWidth: widget.backStrokeWidth,
+                      startAngle: startAngle,
+                      sweepAngle: sweepAngle,
+                      currentLength: currentLength,
+                      frontGradient: sweepGradient,
+                      backColor: widget.backColor,
+                      fullProgressColor: fullProgressColor,
+                      isFullProgress: isFullProgress,
+                    ),
                   ),
                 ),
               ],
@@ -353,14 +352,14 @@ class _SimpleCircularProgressBarPainter extends CustomPainter {
     // [MAIN LOGIC]
 
     double angle = 0;
-    double width = 0;
+    double height = 0;
 
     if (currentLength < progressStrokeWidth / 2) {
-      angle = 90;
-      width = progressStrokeWidth - currentLength * 2;
+      angle = 180;
+      height = progressStrokeWidth - currentLength * 2;
     } else if (currentLength < progressStrokeWidth){
-      angle = -90;
-      width = currentLength * 2 - progressStrokeWidth;
+      angle = 0;
+      height = currentLength * 2 - progressStrokeWidth;
     } else {
       return;
     }
@@ -384,14 +383,14 @@ class _SimpleCircularProgressBarPainter extends CustomPainter {
             progressStrokeWidth,
             progressStrokeWidth,
           ),
-          _degToRad(90),
+          _degToRad(180),
           _degToRad(180),
         ),
         Path()..addArc(
           Rect.fromCenter(
             center: circleOffset,
-            width: width,
-            height: progressStrokeWidth,
+            width: progressStrokeWidth,
+            height: height,
           ),
           _degToRad(angle),
           _degToRad(180),
