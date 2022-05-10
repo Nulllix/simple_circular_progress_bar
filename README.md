@@ -63,7 +63,6 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-
 &nbsp;
 
 ## Start angle
@@ -83,7 +82,6 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-
 &nbsp;
 
 ### Thickness of the lines
@@ -104,7 +102,6 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-
 &nbsp;
 
 ## Merge mode
@@ -133,7 +130,6 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-
 &nbsp;
 
 ## Animation time
@@ -155,7 +151,6 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-
 &nbsp;
 
 ## Text
@@ -186,7 +181,6 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-
 &nbsp;
 
 # Value Notifier Example
