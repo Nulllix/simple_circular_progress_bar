@@ -34,7 +34,8 @@ Example numbers correspond to their numbers in the code.
 To quickly find examples in the repository, look in the code: 'EXAMPLE CODE'.
 
 ## Colors
-*TODO: ADD ANIMATION*
+![Example 01](doc_images/example_01.gif) ![Example 02](doc_images/example_02.gif) ![Example 03](doc_images/example_03.gif)
+
 <details>
     <summary>Dart code</summary>
 
