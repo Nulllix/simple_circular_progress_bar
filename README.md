@@ -181,22 +181,42 @@ SimpleCircularProgressBar(
 // Example 16
 SimpleCircularProgressBar(
     mergeMode: true,
-    onGetTextValue: (double value) {
-        return '${value.toInt()}%';
+    onGetText: (double value) {
+        return Text('${value.toInt()}%');
     },
 ),
 
 // Example 17
 SimpleCircularProgressBar(
+    valueNotifier: valueNotifier,
     mergeMode: true,
-    onGetTextValue: (double value) {
-        return '${value.toInt()}';
+    onGetText: (double value) {
+        return Text(
+            '${value.toInt()}',
+            style: const TextStyle(
+                fontSize: 30,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+            ),
+        );
     },
-    textValueStyle: const TextStyle(
-        fontSize: 30,
-        fontWeight: FontWeight.bold,
-        color: Colors.black,
-    ),
+),
+
+SimpleCircularProgressBar(
+    valueNotifier: valueNotifier,
+    mergeMode: true,
+    onGetText: (double value) {
+        TextStyle centerTextStyle = TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+            color: Colors.greenAccent.withOpacity(value * 0.01),
+        );
+        
+        return Text(
+            '${value.toInt()}',
+            style: centerTextStyle,
+        );
+    },
 ),
 ```
 </details>
