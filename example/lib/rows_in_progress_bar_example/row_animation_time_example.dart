@@ -73,7 +73,7 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  animationDuration: 16,
+                  animationDuration: 6,
                 ),
               ],
             )

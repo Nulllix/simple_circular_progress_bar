@@ -46,16 +46,7 @@ class _RowStartEngleExampleState extends State<RowStartEngleExample> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // ==============================================
-                // |        EXAMPLE CODE 4 (START ENGLE)        |
-                // ==============================================
-                SimpleCircularProgressBar(
-                  valueNotifier: valueNotifier,
-                ),
-
-                const SizedBox(width: 25,),
-
-                // ==============================================
-                // |        EXAMPLE CODE 5 (START ENGLE)        |
+                // |        EXAMPLE CODE 4 (START ANGLE)        |
                 // ==============================================
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
@@ -65,11 +56,21 @@ class _RowStartEngleExampleState extends State<RowStartEngleExample> {
                 const SizedBox(width: 25,),
 
                 // ==============================================
-                // |        EXAMPLE CODE 6 (START ENGLE)        |
+                // |        EXAMPLE CODE 5 (START ANGLE)        |
                 // ==============================================
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
-                  startAngle: -270,
+                  startAngle: 90,
+                ),
+
+                const SizedBox(width: 25,),
+
+                // ==============================================
+                // |        EXAMPLE CODE 6 (START ANGLE)        |
+                // ==============================================
+                SimpleCircularProgressBar(
+                  valueNotifier: valueNotifier,
+                  startAngle: -180,
                 ),
               ],
             )

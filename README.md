@@ -34,7 +34,7 @@ Example numbers correspond to their numbers in the code.
 To quickly find examples in the repository, look in the code: 'EXAMPLE CODE'.
 
 ## Colors
-![Example 01](doc_images/example_01.gif) ![Example 02](doc_images/example_02.gif) ![Example 03](doc_images/example_03.gif)
+![Example 01, 02, 03](doc_images/example_01_02_03.gif)
 
 <details>
     <summary><strong>Dart code</strong></summary>
@@ -65,30 +65,44 @@ SimpleCircularProgressBar(
 </details>
 
 ## Start angle
-*TODO: ADD ANIMATION*
+![Example 04, 05, 06](doc_images/example_04_05_06.gif)
+
 <details>
     <summary><strong>Dart code</strong></summary>
 
 ```dart
-// Example 5
+// Example 4
 SimpleCircularProgressBar(
     startAngle: 45,
 ),
 
+// Example 5
+SimpleCircularProgressBar(
+    startAngle: 90,
+),
+
 // Example 6
 SimpleCircularProgressBar(
-    startAngle: -270,
+    startAngle: -180,
 ),
 ```
 </details>
 &nbsp;
 
 ## Thickness of the lines
-*TODO: ADD ANIMATION*
+![Example 07, 08, 09](doc_images/example_07_08_09.gif)
+
 <details>
     <summary><strong>Dart code</strong></summary>
 
 ```dart
+// Example 7
+SimpleCircularProgressBar(
+    size: 80,
+    progressStrokeWidth: 25,
+    backStrokeWidth: 25,
+),
+
 // Example 8
 SimpleCircularProgressBar(
     progressStrokeWidth: 20,
@@ -103,7 +117,8 @@ SimpleCircularProgressBar(
 </details>
 
 ## Merge mode
-*TODO: ADD ANIMATION*
+![Example 10, 11, 12](doc_images/example_10_11_12.gif)
+
 <details>
     <summary><strong>Dart code</strong></summary>
 
@@ -130,7 +145,8 @@ SimpleCircularProgressBar(
 </details>
 
 ## Animation time
-*TODO: ADD ANIMATION*
+![Example 13, 14, 15](doc_images/example_13_14_15.gif)
+
 <details>
     <summary><strong>Dart code</strong></summary>
 
@@ -141,16 +157,23 @@ SimpleCircularProgressBar(
     animationDuration: 1,
 ),
 
+// Example 14
+SimpleCircularProgressBar(
+    mergeMode: true,
+    animationDuration: 3,
+),
+
 // Example 15
 SimpleCircularProgressBar(
     mergeMode: true,
-    animationDuration: 16,
+    animationDuration: 6,
 ),
 ```
 </details>
 
 ## Text
-*TODO: ADD ANIMATION*
+![Example 16, 17, 18](doc_images/example_16_17_18.gif)
+
 <details>
     <summary><strong>Dart code</strong></summary>
 
@@ -172,7 +195,7 @@ SimpleCircularProgressBar(
     textValueStyle: const TextStyle(
         fontSize: 30,
         fontWeight: FontWeight.bold,
-        color: Colors.white,
+        color: Colors.black,
     ),
 ),
 ```
