@@ -37,7 +37,7 @@ To quickly find examples in the repository, look in the code: 'EXAMPLE CODE'.
 ![Example 01](doc_images/example_01.gif) ![Example 02](doc_images/example_02.gif) ![Example 03](doc_images/example_03.gif)
 
 <details>
-    <summary>Dart code</summary>
+    <summary><strong>Dart code</strong></summary>
 
 ```dart
 // Example 1
@@ -63,12 +63,11 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-&nbsp;
 
 ## Start angle
 *TODO: ADD ANIMATION*
 <details>
-    <summary>Dart code</summary>
+    <summary><strong>Dart code</strong></summary>
 
 ```dart
 // Example 5
@@ -84,10 +83,10 @@ SimpleCircularProgressBar(
 </details>
 &nbsp;
 
-### Thickness of the lines
+## Thickness of the lines
 *TODO: ADD ANIMATION*
 <details>
-    <summary>Dart code</summary>
+    <summary><strong>Dart code</strong></summary>
 
 ```dart
 // Example 8
@@ -102,12 +101,11 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-&nbsp;
 
 ## Merge mode
 *TODO: ADD ANIMATION*
 <details>
-    <summary>Dart code</summary>
+    <summary><strong>Dart code</strong></summary>
 
 ```dart
 // Example 10
@@ -130,12 +128,11 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-&nbsp;
 
 ## Animation time
 *TODO: ADD ANIMATION*
 <details>
-    <summary>Dart code</summary>
+    <summary><strong>Dart code</strong></summary>
 
 ```dart
 // Example 13
@@ -151,12 +148,11 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-&nbsp;
 
 ## Text
 *TODO: ADD ANIMATION*
 <details>
-    <summary>Dart code</summary>
+    <summary><strong>Dart code</strong></summary>
 
 ```dart
 // Example 16
@@ -181,7 +177,6 @@ SimpleCircularProgressBar(
 ),
 ```
 </details>
-&nbsp;
 
 # Value Notifier Example
 *TODO: ADD ANIMATION*
