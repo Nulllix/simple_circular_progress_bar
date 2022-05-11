@@ -1,3 +1,5 @@
+# Simple circular progress bar
+
 <p>
   <img src="https://img.shields.io/github/license/Nulllix/simple_circular_progress_bar?logo=github" />
   <img src="https://img.shields.io/badge/version-1.0.0-blueviolet" />
