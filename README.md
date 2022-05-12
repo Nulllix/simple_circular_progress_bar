@@ -1,3 +1,12 @@
+# Simple circular progress bar
+
+<p>
+  <img src="https://img.shields.io/github/license/Nulllix/simple_circular_progress_bar?logo=github" />
+  <img src="https://img.shields.io/badge/version-1.0.0-blueviolet" />
+  <img src="https://img.shields.io/badge/flutter-2.10.4-blue" />
+  <img src="https://img.shields.io/badge/dart-2.16.2-blue" />
+</p>
+
 Open source Flutter package, simple circular progress indicator.
 
 # Getting Started
