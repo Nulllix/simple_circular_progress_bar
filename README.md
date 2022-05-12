@@ -202,6 +202,7 @@ SimpleCircularProgressBar(
     },
 ),
 
+// Example 18
 SimpleCircularProgressBar(
     valueNotifier: valueNotifier,
     mergeMode: true,
@@ -222,7 +223,7 @@ SimpleCircularProgressBar(
 </details>
 
 # Value Notifier Example
-*TODO: ADD ANIMATION*
+![Example value notifier](doc_images/example_value_notifier.gif)
 
 You can read about how ValueNotifier works [here](https://medium.com/@avnishnishad/flutter-communication-between-widgets-using-valuenotifier-and-valuelistenablebuilder-b51ef627a58b).
 

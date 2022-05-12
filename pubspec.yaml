@@ -1,7 +1,6 @@
 name: simple_circular_progress_bar
-description: A new flutter plugin project.
-version: 0.0.1
-homepage:
+description: Open source Flutter package, simple circular progress indicator.
+version: 1.0.0
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
@@ -34,9 +33,6 @@ flutter:
         pluginClass: SimpleCircularProgressBarPlugin
       ios:
         pluginClass: SimpleCircularProgressBarPlugin
-      web:
-        pluginClass: SimpleCircularProgressBarWeb
-        fileName: simple_circular_progress_bar_web.dart
 
   # To add assets to your plugin package, add an assets section, like this:
   # assets:
