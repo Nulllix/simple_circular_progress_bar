@@ -5,8 +5,7 @@ class RowTextExample extends StatefulWidget {
   const RowTextExample({Key? key}) : super(key: key);
 
   @override
-  _RowTextExampleState createState() =>
-      _RowTextExampleState();
+  _RowTextExampleState createState() => _RowTextExampleState();
 }
 
 class _RowTextExampleState extends State<RowTextExample> {
@@ -41,7 +40,9 @@ class _RowTextExampleState extends State<RowTextExample> {
                 color: Colors.white.withOpacity(0.5),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -56,7 +57,9 @@ class _RowTextExampleState extends State<RowTextExample> {
                   },
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |           EXAMPLE CODE 17 (TEXT)           |
@@ -76,7 +79,9 @@ class _RowTextExampleState extends State<RowTextExample> {
                   },
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |           EXAMPLE CODE 18 (TEXT)           |

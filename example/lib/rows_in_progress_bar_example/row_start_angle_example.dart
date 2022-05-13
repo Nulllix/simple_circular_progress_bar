@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
-class RowStartEngleExample extends StatefulWidget {
-  const RowStartEngleExample({Key? key}) : super(key: key);
+class RowStartAngleExample extends StatefulWidget {
+  const RowStartAngleExample({Key? key}) : super(key: key);
 
   @override
-  _RowStartEngleExampleState createState() =>
-      _RowStartEngleExampleState();
+  _RowStartAngleExampleState createState() => _RowStartAngleExampleState();
 }
 
-class _RowStartEngleExampleState extends State<RowStartEngleExample> {
+class _RowStartAngleExampleState extends State<RowStartAngleExample> {
   late ValueNotifier<double> valueNotifier;
 
   int keyForRepaint = 0;
@@ -34,14 +33,16 @@ class _RowStartEngleExampleState extends State<RowStartEngleExample> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'SELECT START ENGLE',
+              'SELECT START ANGLE',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 color: Colors.white.withOpacity(0.5),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -53,7 +54,9 @@ class _RowStartEngleExampleState extends State<RowStartEngleExample> {
                   startAngle: 45,
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |        EXAMPLE CODE 5 (START ANGLE)        |
@@ -63,7 +66,9 @@ class _RowStartEngleExampleState extends State<RowStartEngleExample> {
                   startAngle: 90,
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |        EXAMPLE CODE 6 (START ANGLE)        |

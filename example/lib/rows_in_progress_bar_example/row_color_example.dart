@@ -5,8 +5,7 @@ class RowColorExample extends StatefulWidget {
   const RowColorExample({Key? key}) : super(key: key);
 
   @override
-  _RowColorExampleState createState() =>
-      _RowColorExampleState();
+  _RowColorExampleState createState() => _RowColorExampleState();
 }
 
 class _RowColorExampleState extends State<RowColorExample> {
@@ -41,7 +40,9 @@ class _RowColorExampleState extends State<RowColorExample> {
                 color: Colors.white.withOpacity(0.5),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -53,7 +54,9 @@ class _RowColorExampleState extends State<RowColorExample> {
                   progressColors: const [Colors.cyan],
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |           EXAMPLE CODE 2 (COLOR)           |
@@ -63,7 +66,9 @@ class _RowColorExampleState extends State<RowColorExample> {
                   progressColors: const [Colors.cyan, Colors.purple],
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |           EXAMPLE CODE 3 (COLOR)           |

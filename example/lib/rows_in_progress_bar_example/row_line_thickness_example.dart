@@ -28,7 +28,7 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
         onTap: () {
           valueNotifier.value = 100.0;
           keyForRepaint++;
-          setState(() { });
+          setState(() {});
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -41,7 +41,9 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                 color: Colors.white.withOpacity(0.5),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -55,7 +57,9 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                   backStrokeWidth: 25,
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |       EXAMPLE CODE 8 (LINE THICKNESS)      |
@@ -67,7 +71,9 @@ class _RowLineThicknessExampleState extends State<RowLineThicknessExample> {
                   backStrokeWidth: 10,
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |       EXAMPLE CODE 9 (LINE THICKNESS)      |

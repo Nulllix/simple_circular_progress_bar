@@ -1,13 +1,21 @@
 # Simple circular progress bar
 
 <p>
-  <img src="https://img.shields.io/github/license/Nulllix/simple_circular_progress_bar?logo=github" />
-  <img src="https://img.shields.io/badge/version-1.0.0-blueviolet" />
-  <img src="https://img.shields.io/badge/flutter-2.10.4-blue" />
-  <img src="https://img.shields.io/badge/dart-2.16.2-blue" />
+  <a href="https://opensource.org/licenses/MIT">
+    <img src="https://img.shields.io/github/license/Nulllix/simple_circular_progress_bar?logo=github" />
+  </a>
+  <a href="https://pub.dev/packages/simple_circular_progress_bar/changelog">
+    <img src="https://img.shields.io/badge/version-1.0.0-blueviolet" />
+  </a>
+  <a href="https://docs.flutter.dev/development/tools/sdk/releases">
+    <img src="https://img.shields.io/badge/flutter-2.10.4-blue" />
+  </a>
+  <a href="https://dart.dev/guides/whats-new">
+    <img src="https://img.shields.io/badge/dart-2.16.2-blue" />
+  </a>
 </p>
 
-Open source Flutter package, simple circular progress indicator.
+Open source Flutter package, simple circular progress bar.
 
 # Getting Started
 - [Installing](#Installing)
@@ -27,7 +35,7 @@ Add in pubspec.yaml:
 dependencies:
   flutter:
     sdk: flutter
-  simple_circular_progress_bar: ^1.0.0
+  simple_circular_progress_bar: ^1.0.1
 ```
 
 Now in your code, you can import:
@@ -246,11 +254,11 @@ The source code of the example can be found [here](https://github.com/Nulllix/si
 | **maxValue**<br>*double*                        | 100     | The maximum value of the progress bar. The values will vary from 0 to [maxValue].                                                                                                        |
 | **startAngle**<br>*double*                      | 0       | The angle from which the countdown of progress begins.                                                                                                                                   |
 | **progressStrokeWidth**<br>*double*             | 15      | Thickness of the progress line.                                                                                                                                                          |
-| **backStrokeWidth**<br>*double*                 | 15      | Line thickness of the background circle.                                                                                                                                                 |
+| **backStrokeWidth**<br>*double*                 | 15      | Line thickness of the background circle. If you don't need a background circle, set this parameter to 0.                                                                                 |
 | **progressColors**<br>*List<Color>*             |         | Progress bar can be either with or without a gradient. For a gradient, specify more than one color in the [progressColors] field and if a gradient is not needed specify only one color. |
 | **fullProgressColor**<br>*Color*                |         | The color of the circle at 100% value. It only works when [mergeMode] equal to true.                                                                                                     |
 | **backColor**<br>*Color*                        |         | The color of the background circle.                                                                                                                                                      |
-| **animationDuration**<br>*int*                  | 6       | Animation duration in seconds.                                                                                                                                                           |
+| **animationDuration**<br>*int*                  | 6       | Animation duration in seconds. If you don't need animation, set this parameter to 0.                                                                                                     |
 | **mergeMode**<br>*bool*                         | false   | When this mode is enabled the progress bar with a 100% value forms a full circle.                                                                                                        |
 | **valueNotifier**<br>*ValueNotifier<double>*    |         | The object designed to update the value of the progress bar. By default, creates a ValueNotifier with the maximum value.                                                                 |
-| **onGetText**<br>*Text Function(double)*   |         | Callback to generate a new Text widget located in the center of the progress bar. The callback input is the current value of the bar progress.                                           |
+| **onGetText**<br>*Text Function(double)*        |         | Callback to generate a new Text widget located in the center of the progress bar. The callback input is the current value of the progress bar.                                           |

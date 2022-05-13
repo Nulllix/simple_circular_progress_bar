@@ -41,7 +41,9 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                 color: Colors.white.withOpacity(0.5),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -54,7 +56,9 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                   animationDuration: 1,
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |      EXAMPLE CODE 14 (ANIMATION TIME)      |
@@ -65,7 +69,9 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                   animationDuration: 3,
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |      EXAMPLE CODE 15 (ANIMATION TIME)      |

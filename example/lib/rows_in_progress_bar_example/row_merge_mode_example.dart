@@ -5,8 +5,7 @@ class RowMergeModeExample extends StatefulWidget {
   const RowMergeModeExample({Key? key}) : super(key: key);
 
   @override
-  _RowMergeModeExampleState createState() =>
-      _RowMergeModeExampleState();
+  _RowMergeModeExampleState createState() => _RowMergeModeExampleState();
 }
 
 class _RowMergeModeExampleState extends State<RowMergeModeExample> {
@@ -41,7 +40,9 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                 color: Colors.white.withOpacity(0.5),
               ),
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -54,7 +55,9 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                   mergeMode: true,
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |        EXAMPLE CODE 11 (MERGE MODE)        |
@@ -66,7 +69,9 @@ class _RowMergeModeExampleState extends State<RowMergeModeExample> {
                   mergeMode: true,
                 ),
 
-                const SizedBox(width: 25,),
+                const SizedBox(
+                  width: 25,
+                ),
 
                 // ==============================================
                 // |        EXAMPLE CODE 12 (MERGE MODE)        |

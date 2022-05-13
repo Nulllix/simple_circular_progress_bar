@@ -110,7 +110,7 @@ class SimpleCircularProgressBar extends StatefulWidget {
     this.valueNotifier,
     this.onGetText,
   }) : super(key: key);
-  
+
   @override
   _SimpleCircularProgressBarState createState() =>
       _SimpleCircularProgressBarState();
@@ -118,7 +118,6 @@ class SimpleCircularProgressBar extends StatefulWidget {
 
 class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
     with SingleTickerProviderStateMixin {
-
   final double minSweepAngle = 0.015;
 
   late double circleLength;
@@ -179,12 +178,13 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
       colors: progressColors,
     );
 
-    fullProgressColor = (widget.fullProgressColor == null) ?
-      progressColors.last : widget.fullProgressColor!;
+    fullProgressColor = (widget.fullProgressColor == null)
+        ? progressColors.last
+        : widget.fullProgressColor!;
 
     // Create animation.
-    final animationDuration = (widget.animationDuration < 0) ?
-      0 : widget.animationDuration;
+    final animationDuration =
+        (widget.animationDuration < 0) ? 0 : widget.animationDuration;
 
     animationController = AnimationController(
       vsync: this,
@@ -193,7 +193,7 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
       upperBound: maxValue,
     );
   }
-  
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -253,7 +253,7 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
             // If mergeMode is on and the current value is equal to the maximum
             // value, we should draw a full circle with the specified color.
             final isFullProgress = widget.mergeMode &
-              (animationController.value == animationController.upperBound);
+                (animationController.value == animationController.upperBound);
 
             // Create center text widget.
             // If no callback is defined, create an empty widget.
@@ -306,7 +306,6 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
   }
 }
 
-
 /// Painter to draw the progress bar.
 class _SimpleCircularProgressBarPainter extends CustomPainter {
   final double progressStrokeWidth;
@@ -357,7 +356,7 @@ class _SimpleCircularProgressBarPainter extends CustomPainter {
     if (currentLength < progressStrokeWidth / 2) {
       angle = 180;
       height = progressStrokeWidth - currentLength * 2;
-    } else if (currentLength < progressStrokeWidth){
+    } else if (currentLength < progressStrokeWidth) {
       angle = 0;
       height = currentLength * 2 - progressStrokeWidth;
     } else {
@@ -376,25 +375,27 @@ class _SimpleCircularProgressBarPainter extends CustomPainter {
     canvas.drawPath(
       Path.combine(
         PathOperation.xor,
-        Path()..addArc(
-          Rect.fromLTWH(
-            circleOffset.dx - progressStrokeWidth/2,
-            circleOffset.dy - progressStrokeWidth/2,
-            progressStrokeWidth,
-            progressStrokeWidth,
+        Path()
+          ..addArc(
+            Rect.fromLTWH(
+              circleOffset.dx - progressStrokeWidth / 2,
+              circleOffset.dy - progressStrokeWidth / 2,
+              progressStrokeWidth,
+              progressStrokeWidth,
+            ),
+            _degToRad(180),
+            _degToRad(180),
           ),
-          _degToRad(180),
-          _degToRad(180),
-        ),
-        Path()..addArc(
-          Rect.fromCenter(
-            center: circleOffset,
-            width: progressStrokeWidth,
-            height: height,
+        Path()
+          ..addArc(
+            Rect.fromCenter(
+              center: circleOffset,
+              width: progressStrokeWidth,
+              height: height,
+            ),
+            _degToRad(angle),
+            _degToRad(180),
           ),
-          _degToRad(angle),
-          _degToRad(180),
-        ),
       ),
       pathPaint,
     );

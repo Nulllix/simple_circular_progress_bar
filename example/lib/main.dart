@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'progress_bar_example.dart';
 import 'value_notifier_example.dart';
@@ -39,47 +38,56 @@ class ExampleHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ButtonStyle buttonStyle = ButtonStyle(
-      textStyle: MaterialStateProperty.all(
-        TextStyle(
-          foreground: Paint()..color = Colors.white,
-          fontSize: 20,
-          fontWeight: FontWeight.bold,
-        )
-      ),
+      textStyle: MaterialStateProperty.all(TextStyle(
+        foreground: Paint()..color = Colors.white,
+        fontSize: 20,
+        fontWeight: FontWeight.bold,
+      )),
       minimumSize: MaterialStateProperty.all(const Size.fromHeight(60)),
-      backgroundColor: MaterialStateProperty.all(Colors.black.withOpacity(0.25)),
+      backgroundColor: MaterialStateProperty.all(
+        Colors.black.withOpacity(0.25),
+      ),
       alignment: Alignment.center,
     );
 
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-            colors: [
-              Color(0xff0d324d),
-              Color(0xff7f5a83),
-            ],
-          )
-      ),
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+        colors: [
+          Color(0xff0d324d),
+          Color(0xff7f5a83),
+        ],
+      )),
       child: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            const SizedBox(height: 20,),
+            const SizedBox(
+              height: 20,
+            ),
+
+            // Create 'Progress bar example' button.
+            // -----------------------------------------------------------------
+            // Most of the examples of working with the progress bar, you can
+            // find in the file: progress_bar_example.dart.
+            // -----------------------------------------------------------------
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ProgressBarExample()),
+                    MaterialPageRoute(
+                      builder: (context) => const ProgressBarExample(),
+                    ),
                   );
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('Progress bar exapmle'.toUpperCase()),
+                    Text('Progress bar example'.toUpperCase()),
                     const Text(
                       'More than 18 examples of bar progress states',
                       textAlign: TextAlign.center,
@@ -92,19 +100,30 @@ class ExampleHome extends StatelessWidget {
                 style: buttonStyle,
               ),
             ),
-            const SizedBox(height: 20,),
+
+            const SizedBox(
+              height: 20,
+            ),
+
+            // Create 'Value notifier example' button.
+            // -----------------------------------------------------------------
+            // Examples of working with value notifier, you can see in the file:
+            // value_notifier_example.dart.
+            // -----------------------------------------------------------------
             Expanded(
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => const ValueNotifierExample()),
+                    MaterialPageRoute(
+                      builder: (context) => const ValueNotifierExample(),
+                    ),
                   );
                 },
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text('Value notifier exapmle'.toUpperCase()),
+                    Text('Value notifier example'.toUpperCase()),
                     const Text(
                       'An example showing how to work with ValueNotifier',
                       textAlign: TextAlign.center,
@@ -117,7 +136,10 @@ class ExampleHome extends StatelessWidget {
                 style: buttonStyle,
               ),
             ),
-            const SizedBox(height: 20,),
+
+            const SizedBox(
+              height: 20,
+            ),
           ],
         ),
       ),
