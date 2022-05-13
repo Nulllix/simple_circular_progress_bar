@@ -28,6 +28,7 @@ Open source Flutter package, simple circular progress bar.
     - [Text](#text)
 - [Value Notifier Example](#value-notifier-example)
 - [Parameters description](#parameters-description)
+- [YouTube video](#youtube-video)
 
 # Installing
 Add in pubspec.yaml:
@@ -164,6 +165,8 @@ SimpleCircularProgressBar(
 ## Animation time
 ![Example 13, 14, 15](doc_images/example_13_14_15.gif)
 
+*If you don't need animation, set animationDuration = 0.*
+
 <details>
     <summary><strong>Dart code</strong></summary>
 
@@ -262,3 +265,6 @@ The source code of the example can be found [here](https://github.com/Nulllix/si
 | **mergeMode**<br>*bool*                         | false   | When this mode is enabled the progress bar with a 100% value forms a full circle.                                                                                                        |
 | **valueNotifier**<br>*ValueNotifier<double>*    |         | The object designed to update the value of the progress bar. By default, creates a ValueNotifier with the maximum value.                                                                 |
 | **onGetText**<br>*Text Function(double)*        |         | Callback to generate a new Text widget located in the center of the progress bar. The callback input is the current value of the progress bar.                                           |
+
+# YouTube video
+You can see how the application works from the example in this [video](https://youtube.com/shorts/kKYyNAk2FMM).
