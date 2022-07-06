@@ -36,7 +36,7 @@ Add in pubspec.yaml:
 dependencies:
   flutter:
     sdk: flutter
-  simple_circular_progress_bar: ^1.0.1
+  simple_circular_progress_bar: ^1.0.2
 ```
 
 Now in your code, you can import:
