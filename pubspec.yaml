@@ -22,3 +22,8 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  # The font is only needed for tests.
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: fonts/Roboto-Regular.ttf
