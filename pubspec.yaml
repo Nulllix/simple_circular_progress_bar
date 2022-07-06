@@ -1,6 +1,6 @@
 name: simple_circular_progress_bar
 description: Open source Flutter package, simple circular progress indicator.
-version: 1.0.1
+version: 1.0.2
 homepage: https://github.com/Nulllix/simple_circular_progress_bar
 
 environment:

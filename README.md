@@ -5,13 +5,13 @@
     <img src="https://img.shields.io/github/license/Nulllix/simple_circular_progress_bar?logo=github" />
   </a>
   <a href="https://pub.dev/packages/simple_circular_progress_bar/changelog">
-    <img src="https://img.shields.io/badge/version-1.0.1-blueviolet" />
+    <img src="https://img.shields.io/badge/version-1.0.2-blueviolet" />
   </a>
   <a href="https://docs.flutter.dev/development/tools/sdk/releases">
-    <img src="https://img.shields.io/badge/flutter-2.10.4-blue" />
+    <img src="https://img.shields.io/badge/flutter-3.0.1-blue" />
   </a>
   <a href="https://dart.dev/guides/whats-new">
-    <img src="https://img.shields.io/badge/dart-2.16.2-blue" />
+    <img src="https://img.shields.io/badge/dart-2.17.1-blue" />
   </a>
 </p>
 
