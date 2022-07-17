@@ -79,8 +79,8 @@ class SimpleCircularProgressBar extends StatefulWidget {
   /// does not support a gradient. About [fullProgressColor] read below.
   ///
   /// Animation param. You can adjust the speed of the animation with the
-  /// [animationDuration] second. The higher the value, the slower the
-  /// animation. If you do not need animation, specify zero [animationDuration].
+  /// [animationDuration]. The higher the value, the slower the animation.
+  /// If you do not need animation, specify zero [animationDuration].
   ///
   /// Value param. Set your ValueNotifier with the [valueNotifier] parameter.
   /// The values are updated with ValueNotifier which helps to avoid unnecessary
