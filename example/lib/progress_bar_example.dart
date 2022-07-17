@@ -52,15 +52,15 @@ class ProgressBarExample extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        // decoration: const BoxDecoration(
-        //     gradient: LinearGradient(
-        //   begin: Alignment.topLeft,
-        //   end: Alignment.bottomRight,
-        //   colors: [
-        //     Color(0xff0d324d),
-        //     Color(0xff7f5a83),
-        //   ],
-        // )),
+        decoration: const BoxDecoration(
+            gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [
+            Color(0xff0d324d),
+            Color(0xff7f5a83),
+          ],
+        )),
         alignment: Alignment.center,
         child: ListView(
           children: const [
