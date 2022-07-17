@@ -174,19 +174,19 @@ SimpleCircularProgressBar(
 // Example 13
 SimpleCircularProgressBar(
     mergeMode: true,
-    animationDuration: 1,
+    animationDuration: const Duration(milliseconds: 500),
 ),
 
 // Example 14
 SimpleCircularProgressBar(
     mergeMode: true,
-    animationDuration: 3,
+    animationDuration: const Duration(seconds: 3),
 ),
 
 // Example 15
 SimpleCircularProgressBar(
     mergeMode: true,
-    animationDuration: 6,
+    animationDuration: const Duration(minutes: 1),
 ),
 ```
 </details>

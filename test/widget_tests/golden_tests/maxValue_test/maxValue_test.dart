@@ -4,7 +4,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  final String groupName = 'maxSize';
+  final String groupName = 'maxValue';
   ValueNotifier<double>? valueNotifier = null;
 
   setUp(() {

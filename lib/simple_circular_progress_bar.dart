@@ -49,7 +49,7 @@ class SimpleCircularProgressBar extends StatefulWidget {
   final Color backColor;
 
   /// Animation speed.
-  final int animationDuration;
+  final Duration animationDuration;
 
   /// When this mode is enabled the progress bar with a 100% value forms a full
   /// circle.
@@ -105,7 +105,7 @@ class SimpleCircularProgressBar extends StatefulWidget {
     this.progressColors = const [Colors.blueAccent, Colors.greenAccent],
     this.fullProgressColor,
     this.backColor = const Color(0xFF16262D),
-    this.animationDuration = 6,
+    this.animationDuration = const Duration(seconds: 6),
     this.mergeMode = false,
     this.valueNotifier,
     this.onGetText,
@@ -183,12 +183,12 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
         : widget.fullProgressColor!;
 
     // Create animation.
-    final animationDuration =
-        (widget.animationDuration < 0) ? 0 : widget.animationDuration;
+    final animationDuration = (widget.animationDuration.inMicroseconds < 0) ?
+      Duration() : widget.animationDuration;
 
     animationController = AnimationController(
       vsync: this,
-      duration: Duration(seconds: animationDuration),
+      duration: animationDuration,
       value: 0.0,
       upperBound: maxValue,
     );

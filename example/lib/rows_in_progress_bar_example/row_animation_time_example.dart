@@ -53,7 +53,7 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  animationDuration: 1,
+                  animationDuration: const Duration(milliseconds: 500),
                 ),
 
                 const SizedBox(
@@ -66,7 +66,7 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  animationDuration: 3,
+                  animationDuration: const Duration(seconds: 3),
                 ),
 
                 const SizedBox(
@@ -79,7 +79,7 @@ class _RowAnimationTimeExampleState extends State<RowAnimationTimeExample> {
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  animationDuration: 6,
+                  animationDuration: const Duration(minutes: 1),
                 ),
               ],
             )

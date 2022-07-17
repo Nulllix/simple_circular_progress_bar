@@ -2,9 +2,9 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  final String groupName = 'startAngle';
+  final String groupName = 'animationDuration';
 
-  void generateTest(String testName, int testValue) {
+  void generateTest(String testName, Duration testValue) {
     testWidgets("Check $testName [$groupName]", (WidgetTester tester) async {
       await tester.pumpWidget(SimpleCircularProgressBar(
         animationDuration: testValue,
@@ -22,10 +22,10 @@ void main() {
 
   group("Golden tests [$groupName]", ()
   {
-    generateTest('Negative', -1);
-    generateTest('Zero', 0);
-    generateTest('LowPositive', 1);
-    generateTest('MediumPositive', 4);
-    generateTest('BigPositive', 10);
+    generateTest('Negative', Duration(seconds: -1));
+    generateTest('Zero', Duration());
+    generateTest('LowPositive', Duration(seconds: 1));
+    generateTest('MediumPositive', Duration(seconds: 4));
+    generateTest('BigPositive', Duration(seconds: 10));
   });
 }
