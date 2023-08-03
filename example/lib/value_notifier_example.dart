@@ -48,7 +48,7 @@ class _ValueNotifierExampleState extends State<ValueNotifierExample> {
                 progressStrokeWidth: 24,
                 backStrokeWidth: 24,
                 mergeMode: true,
-                onGetText: (value) {
+                onGetText: (double value, double maxValue) {
                   return Text(
                     '${value.toInt()}',
                     style: centerTextStyle,

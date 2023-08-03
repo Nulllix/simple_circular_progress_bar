@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
-class RowTextExample extends StatefulWidget {
-  const RowTextExample({Key? key}) : super(key: key);
+class RowTextOrImageExample extends StatefulWidget {
+  const RowTextOrImageExample({Key? key}) : super(key: key);
 
   @override
-  State<RowTextExample> createState() => _RowTextExampleState();
+  State<RowTextOrImageExample> createState() => _RowTextOrImageExampleState();
 }
 
-class _RowTextExampleState extends State<RowTextExample> {
+class _RowTextOrImageExampleState extends State<RowTextOrImageExample> {
   late ValueNotifier<double> valueNotifier;
 
   int keyForRepaint = 0;
@@ -25,15 +25,17 @@ class _RowTextExampleState extends State<RowTextExample> {
       child: GestureDetector(
         key: ValueKey(keyForRepaint),
         onTap: () {
-          valueNotifier.value = 100.0;
-          keyForRepaint++;
-          setState(() {});
+          Future.delayed(const Duration(seconds: 1), () {
+            valueNotifier.value = 100.0;
+            keyForRepaint++;
+            setState(() {});
+          });
         },
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'ADD TEXT',
+              'ADD TEXT OR IMAGE',
               style: TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
@@ -47,13 +49,33 @@ class _RowTextExampleState extends State<RowTextExample> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // ==============================================
-                // |           EXAMPLE CODE 16 (TEXT)           |
+                // |           EXAMPLE CODE 16 (IMAGE)          |
                 // ==============================================
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  onGetText: (double value) {
-                    return Text('${value.toInt()}%');
+                  centerChild: (double value, double maxValue) {
+                    TextStyle centerTextStyle = TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.greenAccent.withOpacity(value * 0.01),
+                    );
+
+                    return Row(
+                      children: [
+                        Icon(
+                          value == maxValue
+                              ? Icons.download_done
+                              : Icons.downloading,
+                          color: Colors.greenAccent.withOpacity(value * 0.01),
+                        ),
+                        const SizedBox(width: 4),
+                        Text(
+                          '${value.toInt()}%',
+                          style: centerTextStyle,
+                        ),
+                      ],
+                    );
                   },
                 ),
 
@@ -67,7 +89,7 @@ class _RowTextExampleState extends State<RowTextExample> {
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  onGetText: (double value) {
+                  onGetText: (double value, double maxValue) {
                     return Text(
                       '${value.toInt()}',
                       style: const TextStyle(
@@ -89,7 +111,7 @@ class _RowTextExampleState extends State<RowTextExample> {
                 SimpleCircularProgressBar(
                   valueNotifier: valueNotifier,
                   mergeMode: true,
-                  onGetText: (double value) {
+                  onGetText: (double value, double maxValue) {
                     TextStyle centerTextStyle = TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,

@@ -5,7 +5,7 @@ class RowStartAngleExample extends StatefulWidget {
   const RowStartAngleExample({Key? key}) : super(key: key);
 
   @override
-  _RowStartAngleExampleState createState() => _RowStartAngleExampleState();
+  State<RowStartAngleExample> createState() => _RowStartAngleExampleState();
 }
 
 class _RowStartAngleExampleState extends State<RowStartAngleExample> {

@@ -3,7 +3,7 @@ import 'package:simple_circular_progress_bar_example/rows_in_progress_bar_exampl
 import 'package:simple_circular_progress_bar_example/rows_in_progress_bar_example/row_line_thickness_example.dart';
 import 'package:simple_circular_progress_bar_example/rows_in_progress_bar_example/row_merge_mode_example.dart';
 import 'package:simple_circular_progress_bar_example/rows_in_progress_bar_example/row_start_angle_example.dart';
-import 'package:simple_circular_progress_bar_example/rows_in_progress_bar_example/row_text_example.dart';
+import 'package:simple_circular_progress_bar_example/rows_in_progress_bar_example/row_text_or_image_example.dart';
 
 import 'rows_in_progress_bar_example/row_color_example.dart';
 
@@ -92,8 +92,8 @@ class ProgressBarExample extends StatelessWidget {
             SizedBox(
               height: 40,
             ),
-            // EXAMPLES CODE 16, 17
-            RowTextExample(),
+            // EXAMPLES CODE 16, 17, 18
+            RowTextOrImageExample(),
             SizedBox(
               height: 20,
             ),
