@@ -25,7 +25,7 @@ Open source Flutter package, simple circular progress bar.
     - [Line thickness](#thickness-of-the-lines)
     - [Merge mode](#merge-mode)
     - [Animation time](#animation-time)
-    - [Text Or Image](#text)
+    - [Text Or Image](#text-or-image)
 - [Value Notifier Example](#value-notifier-example)
 - [Parameters description](#parameters-description)
 - [YouTube video](#youtube-video)
