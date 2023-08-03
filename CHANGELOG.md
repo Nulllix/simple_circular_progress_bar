@@ -1,3 +1,6 @@
+## [2.0.0] - 03.08.2023
+* Adding new capabilities for widget in the center of the progress
+
 ## [1.0.2] - 06.07.2022
 * Added widget tests
 
