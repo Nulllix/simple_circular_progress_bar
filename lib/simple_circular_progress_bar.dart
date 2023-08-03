@@ -112,7 +112,7 @@ class SimpleCircularProgressBar extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  _SimpleCircularProgressBarState createState() =>
+  State<SimpleCircularProgressBar> createState() =>
       _SimpleCircularProgressBarState();
 }
 
@@ -159,7 +159,7 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
     final k = _doublePi / circleLength;
 
     correctAngle = widget.progressStrokeWidth * k;
-    startAngle = (correctAngle / 2);
+    startAngle = correctAngle / 2;
 
     // Adjusting the colors.
     final List<Color> progressColors = [];
@@ -183,8 +183,9 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
         : widget.fullProgressColor!;
 
     // Create animation.
-    final animationDuration = (widget.animationDuration.inMicroseconds < 0) ?
-      Duration() : widget.animationDuration;
+    final animationDuration = (widget.animationDuration.inMicroseconds < 0)
+        ? const Duration()
+        : widget.animationDuration;
 
     animationController = AnimationController(
       vsync: this,

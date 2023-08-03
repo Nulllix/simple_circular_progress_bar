@@ -4,8 +4,7 @@ version: 1.0.2
 homepage: https://github.com/Nulllix/simple_circular_progress_bar
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
-  flutter: ">=2.0.0"
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -14,6 +13,7 @@ dependencies:
     sdk: flutter
 
 dev_dependencies:
+  flutter_lints: ^2.0.2
   flutter_test:
     sdk: flutter
 

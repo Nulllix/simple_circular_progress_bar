@@ -22,8 +22,24 @@ linter:
   # `// ignore_for_file: name_of_lint` syntax on the line or in the file
   # producing the lint.
   rules:
-    # avoid_print: false  # Uncomment to disable the `avoid_print` rule
-    # prefer_single_quotes: true  # Uncomment to enable the `prefer_single_quotes` rule
+    avoid_print: true  # Uncomment to disable the `avoid_print` rule
+    always_declare_return_types: true
+    prefer_single_quotes: true
+    sort_child_properties_last: true
+    unawaited_futures: true
+    unsafe_html: true
+    use_full_hex_values_for_flutter_colors: true
+    unnecessary_lambdas: true
+    unnecessary_late: true
+    unnecessary_parenthesis: true
+
+analyzer:
+  exclude:
+    - "**/*.g.dart"
+    - "**/*.config.dart"
+    - "test/"
+  errors:
+    invalid_annotation_target: ignore
 
 # Additional information about this file can be found at
 # https://dart.dev/guides/language/analysis-options
