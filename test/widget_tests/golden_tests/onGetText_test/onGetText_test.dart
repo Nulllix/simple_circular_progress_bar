@@ -4,12 +4,12 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  final String groupName = 'onGetText';
-  final Duration animDuration = Duration(seconds: 8);
+  const String groupName = 'onGetText';
+  final Duration animDuration = const Duration(seconds: 8);
 
   void generateTest(String testName, Duration pumpDuration,
       String? textExtension, Color? textColor) {
-    testWidgets("Check $testName [$groupName]", (WidgetTester tester) async {
+    testWidgets('Check $testName [$groupName]', (WidgetTester tester) async {
       final font = rootBundle.load('fonts/Roboto-Regular.ttf');
 
       final fontLoader = FontLoader('Roboto')..addFont(font);
@@ -27,7 +27,7 @@ void main() {
         maxValue: animDuration.inSeconds.toDouble(),
         animationDuration: animDuration,
         onGetText: (value) => Text(
-          '${value.toInt()}' + textExtension!,
+          '${value.toInt()}${textExtension!}',
           textDirection: TextDirection.ltr,
           style: centerTextStyle,
         ),
@@ -35,7 +35,7 @@ void main() {
 
       await tester.pump(pumpDuration);
 
-      final centerText = find.text('${pumpDuration.inSeconds}' + textExtension!);
+      final centerText = find.text('${pumpDuration.inSeconds}${textExtension!}');
       expect(centerText, findsOneWidget);
 
       final simpleCircularProgressBar = find.byType(SimpleCircularProgressBar);
@@ -46,9 +46,9 @@ void main() {
     });
   }
 
-  group("Golden tests [$groupName]", () {
-    generateTest('QuarterProgress', Duration(seconds: 2), null, null);
-    generateTest('HalfProgress', Duration(seconds: 4), null, null);
+  group('Golden tests [$groupName]', () {
+    generateTest('QuarterProgress', const Duration(seconds: 2), null, null);
+    generateTest('HalfProgress', const Duration(seconds: 4), null, null);
     generateTest('FullProgress', animDuration, null, null);
     generateTest('TextWithPercent', animDuration, '%', null);
     generateTest('TextColorRed', animDuration, null, Colors.red);

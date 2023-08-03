@@ -4,8 +4,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  final String groupName = 'maxValue';
-  ValueNotifier<double>? valueNotifier = null;
+  const String groupName = 'maxValue';
+  ValueNotifier<double>? valueNotifier;
 
   setUp(() {
     valueNotifier = ValueNotifier(10000);
@@ -16,13 +16,13 @@ void main() {
   });
   
   void generateTest(String testName, double testValue) {
-    testWidgets("Check $testName [$groupName]", (WidgetTester tester) async {
+    testWidgets('Check $testName [$groupName]', (WidgetTester tester) async {
       final font = rootBundle.load('fonts/Roboto-Regular.ttf');
 
       final fontLoader = FontLoader('Roboto')..addFont(font);
       await fontLoader.load();
 
-      final centerTextStyle = const TextStyle(
+      const centerTextStyle = TextStyle(
         fontFamily: 'Roboto',
       );
 
@@ -38,9 +38,9 @@ void main() {
 
       await tester.pumpAndSettle();
 
-      final centerText;
+      final Finder centerText;
       if (testValue <= 0) {
-        final double defaultMaxValue = 100;
+        const double defaultMaxValue = 100;
         centerText = find.text('$defaultMaxValue');
       } else {
         centerText = find.text('$testValue');
@@ -56,7 +56,7 @@ void main() {
     });
   }
 
-  group("Golden tests [$groupName]", () {
+  group('Golden tests [$groupName]', () {
     generateTest('Negative', -1);
     generateTest('Zero', 0);
     generateTest('IntLowPositive', 1);

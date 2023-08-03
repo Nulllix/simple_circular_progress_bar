@@ -2,10 +2,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  final String groupName = 'size';
+  const String groupName = 'size';
 
    void generateTest(String testName, double testValue) {
-    testWidgets("Check $testName [$groupName]", (WidgetTester tester) async {
+    testWidgets('Check $testName [$groupName]', (WidgetTester tester) async {
       await tester.pumpWidget(SimpleCircularProgressBar(
         size: testValue,
       ));
@@ -18,7 +18,7 @@ void main() {
     });
   }
 
-  group("Golden tests [$groupName]", () {
+  group('Golden tests [$groupName]', () {
     generateTest('Negative', -1);
     generateTest('Zero', 0);
     generateTest('IntLowPositive', 1);

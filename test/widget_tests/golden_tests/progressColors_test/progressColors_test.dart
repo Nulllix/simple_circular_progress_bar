@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  final String groupName = 'progressColors';
-  ValueNotifier<double>? valueNotifier = null;
+  const String groupName = 'progressColors';
+  ValueNotifier<double>? valueNotifier;
 
   setUp(() {
     valueNotifier = ValueNotifier(0);
@@ -15,7 +15,7 @@ void main() {
   });
 
   void generateTest(String testName, List<Color> testValue, double progress) {
-    testWidgets("Check $testName [$groupName]", (WidgetTester tester) async {
+    testWidgets('Check $testName [$groupName]', (WidgetTester tester) async {
       await tester.pumpWidget(SimpleCircularProgressBar(
         valueNotifier: valueNotifier,
         progressColors: testValue,
@@ -33,7 +33,7 @@ void main() {
     });
   }
 
-  group("Golden tests [$groupName]", () {
+  group('Golden tests [$groupName]', () {
     generateTest('ZeroFullProgress', [], 100);
     generateTest('OneColorFullProgress', [Colors.red], 100);
     generateTest('TwoColorsFullProgress', [Colors.red, Colors.green], 100);

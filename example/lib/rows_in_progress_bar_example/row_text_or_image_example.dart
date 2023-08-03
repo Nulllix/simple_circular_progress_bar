@@ -5,7 +5,7 @@ class RowTextExample extends StatefulWidget {
   const RowTextExample({Key? key}) : super(key: key);
 
   @override
-  _RowTextExampleState createState() => _RowTextExampleState();
+  State<RowTextExample> createState() => _RowTextExampleState();
 }
 
 class _RowTextExampleState extends State<RowTextExample> {
