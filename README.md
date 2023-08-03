@@ -191,7 +191,7 @@ SimpleCircularProgressBar(
 ```
 </details>
 
-## Text
+## Text Or Image
 ![Example 16, 17, 18](doc_images/example_16_17_18.gif)
 
 <details>
