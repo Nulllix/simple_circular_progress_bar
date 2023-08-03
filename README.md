@@ -2,7 +2,7 @@
 
 <p>
   <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/github/license/dwikyhardi/simple_circular_progress_bar?logo=github" />
+    <img src="https://img.shields.io/github/license/Nulllix/simple_circular_progress_bar?logo=github" />
   </a>
   <a href="https://pub.dev/packages/simple_circular_progress_bar/changelog">
     <img src="https://img.shields.io/badge/version-2.0.0-blueviolet" />
