@@ -25,7 +25,7 @@ Open source Flutter package, simple circular progress bar.
     - [Line thickness](#thickness-of-the-lines)
     - [Merge mode](#merge-mode)
     - [Animation time](#animation-time)
-    - [Text](#text)
+    - [Text Or Image](#text)
 - [Value Notifier Example](#value-notifier-example)
 - [Parameters description](#parameters-description)
 - [YouTube video](#youtube-video)
@@ -36,7 +36,7 @@ Add in pubspec.yaml:
 dependencies:
   flutter:
     sdk: flutter
-  simple_circular_progress_bar: ^1.0.2
+  simple_circular_progress_bar: ^2.0.0
 ```
 
 Now in your code, you can import:
