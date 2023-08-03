@@ -15,7 +15,10 @@ double _degToRad(double degree) {
 }
 
 /// The callback type to get a new text value centered in the progress bar.
-typedef OnGetCenterText = Text Function(double);
+typedef OnGetCenterText = Text Function(double, double);
+
+/// The callback type to get a value centered in the progress bar.
+typedef OnGetCenterWidget = Widget Function(double, double);
 
 /// Simple circular progress bar.
 ///
@@ -59,8 +62,14 @@ class SimpleCircularProgressBar extends StatefulWidget {
   final ValueNotifier<double>? valueNotifier;
 
   /// Callback to generate a new Text widget located in the center of the
-  /// progress bar. The callback input is the current value of the bar progress.
+  /// progress bar. The callback input is the current value
+  /// and the max value of the progress.
   final OnGetCenterText? onGetText;
+
+  /// Widget located in the center of the progress bar.
+  /// The callback input is the current value
+  /// and the max value of the progress.
+  final OnGetCenterWidget? centerChild;
 
   /// Create simple circular progress bar.
   ///
@@ -96,7 +105,7 @@ class SimpleCircularProgressBar extends StatefulWidget {
   /// center of the progress bar, define the [onGetText] method. In this method
   /// you should return the Text widget for the current progress bar value.
   const SimpleCircularProgressBar({
-    Key? key,
+    super.key,
     this.size = 100,
     this.maxValue = 100,
     this.startAngle = 0,
@@ -109,10 +118,18 @@ class SimpleCircularProgressBar extends StatefulWidget {
     this.mergeMode = false,
     this.valueNotifier,
     this.onGetText,
-  }) : super(key: key);
+    this.centerChild,
+  }) : assert(
+          centerChild == null || onGetText == null,
+          'Cannot provide both a centerChild and a onGetText\n'
+          'To provide both, use '
+          '\n\n---------------------------------------\n\n'
+          'centerChild: (double progressValue) {\n return SomeWidget();\n }'
+          '\n\n---------------------------------------\n',
+        );
 
   @override
-  _SimpleCircularProgressBarState createState() =>
+  State<SimpleCircularProgressBar> createState() =>
       _SimpleCircularProgressBarState();
 }
 
@@ -159,7 +176,7 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
     final k = _doublePi / circleLength;
 
     correctAngle = widget.progressStrokeWidth * k;
-    startAngle = (correctAngle / 2);
+    startAngle = correctAngle / 2;
 
     // Adjusting the colors.
     final List<Color> progressColors = [];
@@ -183,8 +200,9 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
         : widget.fullProgressColor!;
 
     // Create animation.
-    final animationDuration = (widget.animationDuration.inMicroseconds < 0) ?
-      Duration() : widget.animationDuration;
+    final animationDuration = (widget.animationDuration.inMicroseconds < 0)
+        ? const Duration()
+        : widget.animationDuration;
 
     animationController = AnimationController(
       vsync: this,
@@ -259,7 +277,11 @@ class _SimpleCircularProgressBarState extends State<SimpleCircularProgressBar>
             // If no callback is defined, create an empty widget.
             Widget centerTextWidget;
             if (widget.onGetText != null) {
-              centerTextWidget = widget.onGetText!(animationController.value);
+              centerTextWidget =
+                  widget.onGetText!(animationController.value, widget.maxValue);
+            } else if (widget.centerChild != null) {
+              centerTextWidget = widget.centerChild!(
+                  animationController.value, widget.maxValue);
             } else {
               centerTextWidget = const SizedBox.shrink();
             }

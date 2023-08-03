@@ -3,10 +3,10 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  final String groupName = 'fullProgressColor';
+  const String groupName = 'fullProgressColor';
 
   void generateTest(String testName, Color? testValue) {
-    testWidgets("Check $testName [$groupName]", (WidgetTester tester) async {
+    testWidgets('Check $testName [$groupName]', (WidgetTester tester) async {
       await tester.pumpWidget(SimpleCircularProgressBar(
         fullProgressColor: testValue,
         mergeMode: true,
@@ -22,7 +22,7 @@ void main() {
     });
   }
 
-  group("Golden tests [$groupName]", () {
+  group('Golden tests [$groupName]', () {
     generateTest('Zero', null);
     generateTest('Red', Colors.red);
     generateTest('Green', Colors.green);

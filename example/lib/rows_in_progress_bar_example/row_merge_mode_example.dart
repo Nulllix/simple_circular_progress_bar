@@ -5,7 +5,7 @@ class RowMergeModeExample extends StatefulWidget {
   const RowMergeModeExample({Key? key}) : super(key: key);
 
   @override
-  _RowMergeModeExampleState createState() => _RowMergeModeExampleState();
+  State<RowMergeModeExample> createState() => _RowMergeModeExampleState();
 }
 
 class _RowMergeModeExampleState extends State<RowMergeModeExample> {

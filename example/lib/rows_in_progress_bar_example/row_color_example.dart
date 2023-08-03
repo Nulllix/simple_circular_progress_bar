@@ -5,7 +5,7 @@ class RowColorExample extends StatefulWidget {
   const RowColorExample({Key? key}) : super(key: key);
 
   @override
-  _RowColorExampleState createState() => _RowColorExampleState();
+  State<RowColorExample> createState() => _RowColorExampleState();
 }
 
 class _RowColorExampleState extends State<RowColorExample> {

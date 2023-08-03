@@ -5,7 +5,7 @@ class RowAnimationTimeExample extends StatefulWidget {
   const RowAnimationTimeExample({Key? key}) : super(key: key);
 
   @override
-  _RowAnimationTimeExampleState createState() =>
+  State<RowAnimationTimeExample> createState() =>
       _RowAnimationTimeExampleState();
 }
 

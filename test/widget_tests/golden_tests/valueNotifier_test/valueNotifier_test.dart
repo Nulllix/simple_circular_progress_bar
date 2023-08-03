@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  final String groupName = 'valueNotifier';
-  ValueNotifier<double>? valueNotifier = null;
+  const String groupName = 'valueNotifier';
+  ValueNotifier<double>? valueNotifier;
 
   setUp(() {
     valueNotifier = ValueNotifier(0);
@@ -15,7 +15,7 @@ void main() {
   });
 
   void generateTest() {
-    testWidgets("Check [$groupName]", (WidgetTester tester) async {
+    testWidgets('Check [$groupName]', (WidgetTester tester) async {
 
       await tester.pumpWidget(SimpleCircularProgressBar(
         valueNotifier: valueNotifier,
@@ -49,7 +49,5 @@ void main() {
     });
   }
 
-  group("Golden tests [$groupName]", () {
-    generateTest();
-  });
+  group('Golden tests [$groupName]', generateTest);
 }

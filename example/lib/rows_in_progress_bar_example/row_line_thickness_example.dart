@@ -5,7 +5,7 @@ class RowLineThicknessExample extends StatefulWidget {
   const RowLineThicknessExample({Key? key}) : super(key: key);
 
   @override
-  _RowLineThicknessExampleState createState() =>
+  State<RowLineThicknessExample> createState() =>
       _RowLineThicknessExampleState();
 }
 

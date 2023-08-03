@@ -84,6 +84,7 @@ class ExampleHome extends StatelessWidget {
                     ),
                   );
                 },
+                style: buttonStyle,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -97,7 +98,6 @@ class ExampleHome extends StatelessWidget {
                     ),
                   ],
                 ),
-                style: buttonStyle,
               ),
             ),
 
@@ -120,6 +120,7 @@ class ExampleHome extends StatelessWidget {
                     ),
                   );
                 },
+                style: buttonStyle,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -133,7 +134,6 @@ class ExampleHome extends StatelessWidget {
                     ),
                   ],
                 ),
-                style: buttonStyle,
               ),
             ),
 

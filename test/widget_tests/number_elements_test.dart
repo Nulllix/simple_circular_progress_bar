@@ -3,7 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:simple_circular_progress_bar/simple_circular_progress_bar.dart';
 
 void main() {
-  group("Check number of elements", () {
+  group('Check number of elements', () {
     // Auxiliary function to check the number of elements without text
     void checkNumberElementsWithoutText() async {
       final stack = find.byType(Stack);
@@ -40,14 +40,14 @@ void main() {
       await expectLater(text, findsOneWidget);
     }
 
-    testWidgets("Check number of elements [before animation] [without text]",
+    testWidgets('Check number of elements [before animation] [without text]',
         (WidgetTester tester) async {
-      await tester.pumpWidget(SimpleCircularProgressBar());
+      await tester.pumpWidget(const SimpleCircularProgressBar());
 
       checkNumberElementsWithoutText();
     });
 
-    testWidgets("Check number of elements [before animation] [with text]",
+    testWidgets('Check number of elements [before animation] [with text]',
         (WidgetTester tester) async {
       await tester.pumpWidget(SimpleCircularProgressBar(
         onGetText: (value) => Text('$value', textDirection: TextDirection.ltr),
@@ -56,36 +56,36 @@ void main() {
       checkNumberElementsWithText();
     });
 
-    testWidgets("Check number of elements [during animation] [without text]",
+    testWidgets('Check number of elements [during animation] [without text]',
         (WidgetTester tester) async {
-      await tester.pumpWidget(SimpleCircularProgressBar());
+      await tester.pumpWidget(const SimpleCircularProgressBar());
 
-      await tester.pump(Duration(seconds: 3));
+      await tester.pump(const Duration(seconds: 3));
 
       checkNumberElementsWithoutText();
     });
 
-    testWidgets("Check number of elements [during animation] [with text]",
+    testWidgets('Check number of elements [during animation] [with text]',
         (WidgetTester tester) async {
       await tester.pumpWidget(SimpleCircularProgressBar(
         onGetText: (value) => Text('$value', textDirection: TextDirection.ltr),
       ));
 
-      await tester.pump(Duration(seconds: 3));
+      await tester.pump(const Duration(seconds: 3));
 
       checkNumberElementsWithText();
     });
 
-    testWidgets("Check number of elements [after animation] [without text]",
+    testWidgets('Check number of elements [after animation] [without text]',
         (WidgetTester tester) async {
-      await tester.pumpWidget(SimpleCircularProgressBar());
+      await tester.pumpWidget(const SimpleCircularProgressBar());
 
       await tester.pumpAndSettle();
 
       checkNumberElementsWithoutText();
     });
 
-    testWidgets("Check number of elements [after animation] [with text]",
+    testWidgets('Check number of elements [after animation] [with text]',
         (WidgetTester tester) async {
       await tester.pumpWidget(SimpleCircularProgressBar(
         onGetText: (value) => Text('$value', textDirection: TextDirection.ltr),
