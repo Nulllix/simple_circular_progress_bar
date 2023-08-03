@@ -2,16 +2,16 @@
 
 <p>
   <a href="https://opensource.org/licenses/MIT">
-    <img src="https://img.shields.io/github/license/Nulllix/simple_circular_progress_bar?logo=github" />
+    <img src="https://img.shields.io/github/license/dwikyhardi/simple_circular_progress_bar?logo=github" />
   </a>
   <a href="https://pub.dev/packages/simple_circular_progress_bar/changelog">
-    <img src="https://img.shields.io/badge/version-1.0.2-blueviolet" />
+    <img src="https://img.shields.io/badge/version-2.0.0-blueviolet" />
   </a>
   <a href="https://docs.flutter.dev/development/tools/sdk/releases">
-    <img src="https://img.shields.io/badge/flutter-3.0.1-blue" />
+    <img src="https://img.shields.io/badge/flutter-3.10.3-blue" />
   </a>
   <a href="https://dart.dev/guides/whats-new">
-    <img src="https://img.shields.io/badge/dart-2.17.1-blue" />
+    <img src="https://img.shields.io/badge/dart-3.0.3-blue" />
   </a>
 </p>
 
@@ -200,17 +200,38 @@ SimpleCircularProgressBar(
 ```dart
 // Example 16
 SimpleCircularProgressBar(
-    mergeMode: true,
-    onGetText: (double value) {
-        return Text('${value.toInt()}%');
-    },
+  valueNotifier: valueNotifier,
+  mergeMode: true,
+  centerChild: (double value, double maxValue) {
+    TextStyle centerTextStyle = TextStyle(
+      fontSize: 16,
+      fontWeight: FontWeight.bold,
+      color: Colors.greenAccent.withOpacity(value * 0.01),
+    );
+
+    return Row(
+      children: [
+        Icon(
+          value == maxValue
+          ? Icons.download_done
+          : Icons.downloading,
+          color: Colors.greenAccent.withOpacity(value * 0.01),
+        ),
+        const SizedBox(width: 4),
+        Text(
+          '${value.toInt()}%',
+          style: centerTextStyle,
+        ),
+      ],
+    );
+  },
 ),
 
 // Example 17
 SimpleCircularProgressBar(
     valueNotifier: valueNotifier,
     mergeMode: true,
-    onGetText: (double value) {
+    onGetText: (double value, double maxValue) {
         return Text(
             '${value.toInt()}',
             style: const TextStyle(
@@ -226,7 +247,7 @@ SimpleCircularProgressBar(
 SimpleCircularProgressBar(
     valueNotifier: valueNotifier,
     mergeMode: true,
-    onGetText: (double value) {
+    onGetText: (double value, double maxValue) {
         TextStyle centerTextStyle = TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
@@ -251,20 +272,21 @@ The source code of the example can be found [here](https://github.com/Nulllix/si
 
 # Parameters description
 
-| Parameter                                       | Default              | Description                                                                                                                                                                                       |
-|-------------------------------------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **size** <br>*double*                           | 100                  | Widget size.                                                                                                                                                                                      |
-| **maxValue**<br>*double*                        | 100                  | The maximum value of the progress bar. The values will vary from 0 to [maxValue].                                                                                                                 |
-| **startAngle**<br>*double*                      | 0                    | The angle from which the countdown of progress begins.                                                                                                                                            |
-| **progressStrokeWidth**<br>*double*             | 15                   | Thickness of the progress line.                                                                                                                                                                   |
-| **backStrokeWidth**<br>*double*                 | 15                   | Line thickness of the background circle. If you don't need a background circle, set this parameter to 0.                                                                                          |
-| **progressColors**<br>*List<Color>*             |                      | Progress bar can be either with or without a gradient. For a gradient, specify more than one color in the [progressColors] field and if a gradient is not needed specify only one color.          |
-| **fullProgressColor**<br>*Color*                |                      | The color of the circle at 100% value. It only works when [mergeMode] equal to true.                                                                                                              |
-| **backColor**<br>*Color*                        |                      | The color of the background circle.                                                                                                                                                               |
-| **animationDuration**<br>*int*                  | Duration(seconds: 6) | Animation duration. If you don't need animation, set this parameter to zero Duration.                                                                                                               |
-| **mergeMode**<br>*bool*                         | false                | When this mode is enabled the progress bar with a 100% value forms a full circle with [fullProgressColor]. If no [fullProgressColor] is specified, the last color from [progressColors] is taken. |
-| **valueNotifier**<br>*ValueNotifier<double>*    |                      | The object designed to update the value of the progress bar. By default, creates a ValueNotifier with the maximum value.                                                                          |
-| **onGetText**<br>*Text Function(double)*        |                      | Callback to generate a new Text widget located in the center of the progress bar. The callback input is the current value of the progress bar.                                                    |
+| Parameter                                        | Default              | Description                                                                                                                                                                                       |
+|--------------------------------------------------|----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **size** <br>*double*                            | 100                  | Widget size.                                                                                                                                                                                      |
+| **maxValue**<br>*double*                         | 100                  | The maximum value of the progress bar. The values will vary from 0 to [maxValue].                                                                                                                 |
+| **startAngle**<br>*double*                       | 0                    | The angle from which the countdown of progress begins.                                                                                                                                            |
+| **progressStrokeWidth**<br>*double*              | 15                   | Thickness of the progress line.                                                                                                                                                                   |
+| **backStrokeWidth**<br>*double*                  | 15                   | Line thickness of the background circle. If you don't need a background circle, set this parameter to 0.                                                                                          |
+| **progressColors**<br>*List<Color>*              |                      | Progress bar can be either with or without a gradient. For a gradient, specify more than one color in the [progressColors] field and if a gradient is not needed specify only one color.          |
+| **fullProgressColor**<br>*Color*                 |                      | The color of the circle at 100% value. It only works when [mergeMode] equal to true.                                                                                                              |
+| **backColor**<br>*Color*                         |                      | The color of the background circle.                                                                                                                                                               |
+| **animationDuration**<br>*int*                   | Duration(seconds: 6) | Animation duration. If you don't need animation, set this parameter to zero Duration.                                                                                                             |
+| **mergeMode**<br>*bool*                          | false                | When this mode is enabled the progress bar with a 100% value forms a full circle with [fullProgressColor]. If no [fullProgressColor] is specified, the last color from [progressColors] is taken. |
+| **valueNotifier**<br>*ValueNotifier<double>*     |                      | The object designed to update the value of the progress bar. By default, creates a ValueNotifier with the maximum value.                                                                          |
+| **onGetText**<br>*Text Function(double, double)* |                      | Callback to generate a new Text widget located in the center of the progress bar. The callback input is the current value and the maxValue of the progress bar.                                   |
+| **centerChild**<br>*Text Function(double, double)* |                      | Widget located in the center of the progress bar. The callback input is the current value and the max value of the progress.                                                                      |
 
 # YouTube video
 You can see how the application works from the example in this [video](https://youtube.com/shorts/kKYyNAk2FMM).
